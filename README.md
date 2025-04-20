@@ -1,10 +1,10 @@
 # Intoduction
 This project investigates what types of recipes tend to have the most calories. This is incredibly important because it can help individuals make more informed dietary choices and can aid in meal planning and general nutritional awarness. Learning about the relationships between nutritional information and calories can empower people to maintain a healthier and more balanced lifestyle.
 
-The data used in this analysis consists of scrapped recipe reviews from the website food.com. It contains N/A rows and N/A columns, with each row containing a review for a particular recipe. The two columns that were most relavent include: 
+The data used in this analysis consists of scrapped recipe reviews from the website food.com. It contains 23,4429 rows and 17 columns, with each row containing a review for a particular recipe. The two columns that were most relavent include: 
 
-- Nutrition: Consists of nutrient information such as number of calories and the Percentage of Daily Value (PDV) for total fat, sugar, sodium, protein, saturated fat, and carbohydrates
-- Tags: The descriptor tags that are present for each recipe. The tags that I was particularly interested in include breakfast, lunch, dinner, brunch, main-dish
+- **`Nutrition`**: Consists of nutrient information such as number of calories and the Percentage of Daily Value (PDV) for total fat, sugar, sodium, protein, saturated fat, and carbohydrates
+- **`Tags`**: The descriptor tags that are present for each recipe. The tags that I was particularly interested in include breakfast, lunch, dinner, brunch, main-dish
 
 # Data Cleaning and Exploratory Data Analysis
 |     id | name                                              | tags                  |   avg_rating |   Calories |   Total Fat |   Sugar |   Sodium |   Protein |   Saturated Fat |   Carbohydrates |

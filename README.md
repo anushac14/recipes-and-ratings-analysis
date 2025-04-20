@@ -1,8 +1,20 @@
 # recipes-and-ratings-analysis
 
 # Intoduction
+This project investigates what types of recipes tend to have the most calories. This is incredibly important because it can help individuals make more informed dietary choices and can aid in meal planning and general nutritional awarness. Learning about the relationships between nutritional information and calories can empower people to maintain a healthier and more balanced lifestyle.
+
+The data used in this analysis consists of scrapped recipe reviews from the website food.com. It contains N/A rows and N/A columns, with each row containing a review for a particular recipe. The two columns that were most relavent include: 
+
+- Nutrition: Consists of nutrient information such as number of calories and the Percentage of Daily Value (PDV) for total fat, sugar, sodium, protein, saturated fat, and carbohydrates
+- Tags: The descriptor tags that are present for each recipe. The tags that I was particularly interested in include breakfast, lunch, dinner, brunch, main-dish
 
 # Data Cleaning and Exploratory Data Analysis
+
+
+<iframe src="assets/cleaned_table.html" width="800" height="400" frameborder="0">
+</iframe>
+
+
 This histogram displays the distribution of calories and specifically shows the count of the number of recipes per 100 calorie increment. Based on the graph, it is clear that there is a right skew, with many of the dishes being within the range of 0-600 calories, which makes sense as the average amount of calories that a meal fits within that range. This doesn't directly answer the question however it does give us an idea of what the typically amount of calories a dish has in this dataset.
 
 This graph plots the relationship between the amount of carbohydrates in a dish to the amount of calories the dish has. It is clear that there is a linear relationship between these variables, as can be seen by the trend line, which indicates that foods with higher carbohydrates tend to also have more calories.

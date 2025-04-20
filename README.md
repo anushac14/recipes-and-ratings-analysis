@@ -7,17 +7,13 @@ The data used in this analysis consists of scrapped recipe reviews from the webs
 - Tags: The descriptor tags that are present for each recipe. The tags that I was particularly interested in include breakfast, lunch, dinner, brunch, main-dish
 
 # Data Cleaning and Exploratory Data Analysis
-
-
-|    |     id | name                                 | tags                                                                                                                                                                                                                        |   avg_rating |   Calories |   Total Fat |   Sugar |   Sodium |   Protein |   Saturated Fat |   Carbohydrates |
-|---:|-------:|:-------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------:|-----------:|------------:|--------:|---------:|----------:|----------------:|----------------:|
-|  0 | 333281 | 1 brownies in the world    best ever | ['60-minutes-or-less', 'time-to-make', 'course', 'main-ingredient', 'preparation', 'for-large-groups', 'desserts', 'lunch', 'snacks', 'cookies-and-brownies', 'chocolate', 'bar-cookies', 'brownies', 'number-of-servings'] |            4 |      138.4 |          10 |      50 |        3 |         3 |              19 |               6 |
-|  1 | 453467 | 1 in canada chocolate chip cookies   | ['60-minutes-or-less', 'time-to-make', 'cuisine', 'preparation', 'north-american', 'for-large-groups', 'canadian', 'british-columbian', 'number-of-servings']                                                               |            5 |      595.1 |          46 |     211 |       22 |        13 |              51 |              26 |
-|  2 | 306168 | 412 broccoli casserole               | ['60-minutes-or-less', 'time-to-make', 'course', 'main-ingredient', 'preparation', 'side-dishes', 'vegetables', 'easy', 'beginner-cook', 'broccoli']                                                                        |            5 |      194.8 |          20 |       6 |       32 |        22 |              36 |               3 |
-|  3 | 306168 | 412 broccoli casserole               | ['60-minutes-or-less', 'time-to-make', 'course', 'main-ingredient', 'preparation', 'side-dishes', 'vegetables', 'easy', 'beginner-cook', 'broccoli']                                                                        |            5 |      194.8 |          20 |       6 |       32 |        22 |              36 |               3 |
-|  4 | 306168 | 412 broccoli casserole               | ['60-minutes-or-less', 'time-to-make', 'course', 'main-ingredient', 'preparation', 'side-dishes', 'vegetables', 'easy', 'beginner-cook', 'broccoli']                                                                        |            5 |      194.8 |          20 |       6 |       32 |        22 |              36 |               3 |
-
-
+|        |     id | name                                              | tags                  |   avg_rating |   Calories |   Total Fat |   Sugar |   Sodium |   Protein |   Saturated Fat |   Carbohydrates |
+|-------:|-------:|:--------------------------------------------------|:----------------------|-------------:|-----------:|------------:|--------:|---------:|----------:|----------------:|----------------:|
+|  51998 | 324496 | chocolate spritz cookies                          | desserts              |            5 |       47.1 |           4 |      10 |        0 |         1 |               8 |               1 |
+|  18892 | 287392 | banana raspberry slush                            | 5-ingredients-or-less |            5 |      229.9 |           2 |     165 |        1 |         8 |               2 |              18 |
+| 184024 | 414099 | scallops with garlic bread crumbs weight watchers | 15-minutes-or-less    |            5 |      152.6 |           6 |       1 |       38 |        36 |              10 |               3 |
+| 160177 | 476734 | peppery sweet oven roasted salmon                 | taste-mood            |            5 |      123.8 |           5 |      16 |        2 |        34 |               3 |               1 |
+| 102993 | 285338 | healthier chicken marsala                         | 60-minutes-or-less    |            5 |      360.1 |          15 |       9 |       18 |        56 |              15 |               4 |
 
 This histogram displays the distribution of calories and specifically shows the count of the number of recipes per 100 calorie increment. Based on the graph, it is clear that there is a right skew, with many of the dishes being within the range of 0-600 calories, which makes sense as the average amount of calories that a meal fits within that range. This doesn't directly answer the question however it does give us an idea of what the typically amount of calories a dish has in this dataset.
 

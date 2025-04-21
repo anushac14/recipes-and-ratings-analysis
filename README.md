@@ -39,7 +39,7 @@ This histogram displays the distribution of calories and specifically shows the 
 
 **Carbohydrates vs Calories Distribution**
  <iframe
- src="assets/carbs-calorie-distribution.html"
+ src="assets/carbs-calories-distribution.html"
  width="800"
  height="600"
  frameborder="0"

@@ -8,7 +8,7 @@ The data used in this analysis consists of scrapped recipe reviews from the webs
 - **`Nutrition`**: Consists of nutrient information such as number of calories and the Percentage of Daily Value (PDV) for total fat, sugar, sodium, protein, saturated fat, and carbohydrates
 - **`Tags`**: The descriptor tags that are present for each recipe. The tags that I was particularly interested in include breakfast, lunch, dinner, brunch, main-dish
 
-# Data Cleaning and Exploratory Data Analysis
+## Data Cleaning and Exploratory Data Analysis
 
 **Data Cleaning Steps**
 In order to begin exploring the data, I first began by preprocessing and cleaning the current dataset in the following way:
@@ -63,13 +63,13 @@ This pivot table shows the average nutritional content for various meal types in
 **Imputation**
 After analyzing my dataset, I found that the two columns with the most significant number of missing values were rating (15,036 missing values) and avg_rating (2,777 missing values). These correspond to approximately 6.41% and 1.18% of the total dataset. Given that these missing percentages are relatively low compared to the size of the dataset, one option could be to drop the rows containing these missing values. However, since my analysis is focused on determining which factors influence calorie amount (which doesn't involve ratings or average ratings), I decided to keep the missing values since there is no significant impact.
 
-# Framing a Prediction Problem
+## Framing a Prediction Problem
 The problem that I am trying to predict is given the nutritional facts about a recipe, can we predict the amount of calories that dish has. Since my response variable is calories (which is a continuous variable), this problem would be considered regression. During my exploratory analysis, there seemed to be correlations between various nutition facts and the calorie amount, which is why I chose calories as my prediction variable. The metric that I decided to use to evaluate my model is R^2 because this indicated how well a model fits the data and what percentage of the variability the model captures. This is more informative than other evaluation metrics such as Mean Squared Error (MSE) and Root Mean Squared Error (RMSE) because MSE and RMSE only provides information about the magnitude of the model's prediction error without offering insight into the overall fit of the model. 
 
-# Baseline Model
+## Baseline Model
 The baseline model I chose was linear regression because it can effectively model the linear relationships between the input features (nutrition facts) and the target variable (calories). The features used for this model include Carbohydrates and Proteins, which both have a positive linear relationship with calories. Both of these features are quantitative and nominal and neither are ordinal. The R^2 performance on this model was 0.8116 for the training set and 0.8077 for the testing set. This indicates that the model captures 80.77% of the variance in the calorie values on unseen data. I believe that my current model is fairly good at capturing most of the variance but there is still room for improvement through feature engineering. 
 
-# Final Model
+## Final Model
 In order to improve upon the baseline model's performance, I decided to implement some feature engineering. Here are the 2 features that I included in the final model (in addition to the baseline model's protein and carbohydrates features):
 
 - **`sugar_to_fat_ratio`** This feature is the ratio of sugar:total fat. Since foods that have higher amounts of sugar and fat tend to be more calorically dense, this feature helped improve my model's prediction accuracy since higher ratios indicate more calories.

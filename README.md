@@ -1,4 +1,4 @@
-# Nutrition Prediction
+# The Calorie Code: Unlocking Nutritional Information in Food Data
 
 # Introduction
 This project investigates what types of recipes tend to have the most calories. This is incredibly important because it can help individuals make more informed dietary choices and can aid in meal planning and general nutritional awareness. Learning about the relationships between nutritional information and calories can empower people to maintain a healthier and more balanced lifestyle.

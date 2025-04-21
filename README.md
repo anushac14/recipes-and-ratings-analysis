@@ -68,9 +68,12 @@ The problem that I am trying to predict is given nutritional facts about a recip
 The baseline model I chose was linear regression because it can effectively model the linear relationships between the input features (nutrition facts) and the target variable (calories). The features used for this model include Carbohydrates and Proteins, which both have a positive linear relationship with calories. Both of these features are quantitative and nominal and neither are ordinal. The R^2 performance on this model was 0.8116 for the training set and 0.8077 for the testing set. This indicates that the model captures 80.77% of the variance in the calorie values on unseen data. I believe that my current model is fairly good at capturing most of the variance but there is still room for improvement through feature engineering. 
 
 # Final Model
-In order to improve upon the baseline model's 
+In order to improve upon the baseline model's performance, I decided to implement some feature engineering. Here are the 2 features that I included (in addition to the baseline model's protein and carbohydrates features):
 
-The first feature that I added was an energy density variable, which takes the PDV values and multiplies by the respective amounts. Ex: 4 * Protien, 4 * Carbs, 9 * Total Fat. This is because this is similar to the equation of calculating macronutrients expect I am weighting the percents accordingly. Another feature that I added was the protein to carb ratio, which gaves an idea of which meals have more/less calories. I also added total fats because it had a linear relationship with calories as well. 
+- **`sugar_to_fat_ratio`** This feature is the ratio of sugar:total fat. Since foods that have higher amounts of sugar and fat tend to be more calorically dense, this feature helped improve my model's prediction accuracy since higher ratios indicate more calories
+- **`sodium_satfat_interaction`** This feature is the interaction of sodium * saturated fat. This helped improve my model because foods that tend to be higher in sodium and saturated fats (such as junk food or fast food) tend to also have higher calories, which also has potential to improve my model's performance.
+
+The modeling algorithm that I chose was 
 
 The modeling algorithm that I chose was Ridge because it handles linear relationships as well as multicollinearity. 
 

@@ -7,6 +7,9 @@ The data used in this analysis consists of scrapped recipe reviews from the webs
 - **`Tags`**: The descriptor tags that are present for each recipe. The tags that I was particularly interested in include breakfast, lunch, dinner, brunch, main-dish
 
 # Data Cleaning and Exploratory Data Analysis
+
+**Data Cleaning Steps**
+
 In order to start exploring the data, I first began by preprocessing and cleaning the current dataset in the following way:
 
 1. I started with two separate datasets, RAW_recipes.csv, which contains recipe information from food.com, and RAW_interactions.csv, which contains user ratings and reviews for these recipes. I merged these datasets using a left join on the recipe_id column to combine the relevant information.
@@ -25,18 +28,37 @@ Here is the first few rows of resulting cleaned dataframe:
 | 476734  | peppery sweet oven roasted salmon                 | taste-mood            |            5 |      123.8 |           5 |      16 |        2 |        34 |               3 |               1 |
 | 285338  | healthier chicken marsala                         | 60-minutes-or-less    |            5 |      360.1 |          15 |       9 |       18 |        56 |              15 |               4 |
 
+**Calorie Distribution**
  <iframe
  src="assets/calorie-distribution.html"
  width="800"
  height="600"
  frameborder="0"
  ></iframe>
-
 This histogram displays the distribution of calories and specifically shows the count of the number of recipes per 100 calorie increment. Based on the graph, it is clear that there is a right skew, with many of the dishes being within the range of 0-600 calories, which makes sense as the average amount of calories that a meal fits within that range. This doesn't directly answer my inital exploration question however it does give an idea of what the typical number of calories a dish has in this dataset.
 
-This graph plots the relationship between the amount of carbohydrates in a dish to the amount of calories the dish has. It is clear that there is a linear relationship between these variables, as can be seen by the trend line, which indicates that foods with higher carbohydrates tend to also have more calories.
+**Carbohydrates vs Calories Distribution**
+ <iframe
+ src="assets/carbs-calorie-distribution.html"
+ width="800"
+ height="600"
+ frameborder="0"
+ ></iframe>
+This graph plots the relationship between the amount of carbohydrates in a dish to the amount of calories the dish has. There appears to be a positive linear relationship between these variables, which indicates that foods with higher carbohydrates also tend to also have more calories.
 
-This pivot table shows the average amount of calories, fat, sugar, and carbohydrates from various types of meals such as a main meal (like dinner), breakfast, lunch, dinner and appetizers. It is interesting to note that the main dish has a significantly higher calorie count (about 100 more) than lunch even though those meals tend to be around the same. It also has a higher total fat amount. This indicates that there are a few distinguishing factors that make certain meals more caloric than others.
+**Nutritional Information Per Meal Type**
+
+| Tag        |   Calories |   Total Fat |   Sugar |   Carbohydrates |   Count |
+|:-----------|-----------:|------------:|--------:|----------------:|--------:|
+| main-dish  |    502.815 |     40.0705 | 30.5317 |        11.2432  |   71806 |
+| lunch      |    401.056 |     31.7938 | 35.7984 |        11.2587  |   19582 |
+| brunch     |    387.927 |     29.7146 | 63.9722 |        13.2426  |   18057 |
+| breakfast  |    355.093 |     26.2486 | 56.2776 |        12.4942  |   16259 |
+| appetizers |    337.755 |     32.6989 | 28.768  |         7.37155 |   17268 |
+
+This pivot table shows the average amount of calories, fat, sugar, and carbohydrates from various types of meals such as a main meal (assuming dinner), breakfast, lunch, brunch and appetizers. It is interesting to note that the main dish has a significantly higher calorie count (about 100 more) than lunch even though those meals tend to be around the same. It also has a higher total fat amount. This indicates that there are a few distinguishing factors that make certain meals more caloric than others.
+
+**Imputation**
 
 I did not choose to impute any missing values because the amount that was missing was relatively marginal that those rows could simply be dropped
 
@@ -56,4 +78,3 @@ The modeling algorithm that I chose was Ridge because it handles linear relation
 The best hyperparameters were {'model__alpha': 10, 'model__fit_intercept': True}
 
 The final model's R^2 value was 0.9959, which means that 99.59% of the variance in the data is captured by my model, which is a significant improvement from my baseline. 
-

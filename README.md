@@ -3,7 +3,7 @@ By: **Anusha Chinthamaduka**
 
 ---
 ## Introduction
-This project investigates what types of recipes tend to have the most calories. This is incredibly important because it can help individuals make more informed dietary choices and can aid in meal planning and general nutritional awareness. Learning about the relationships between nutritional information and calories can empower people to maintain a healthier and more balanced lifestyle.
+This project investigates what types of recipes tend to have the most calories. This is incredibly important because it can help individuals make more informed dietary choices and can aid in meal planning and general nutritional awareness. By examining the relationship between nutritional information and calorie content, this analysis aims to empower people to maintain a healthier and more balanced lifestyle.
 
 The data used in this analysis consists of scrapped recipe reviews from the website food.com. There were 2 separate datasets, one containing recipes and the other containing the reviews and ratings for the recipes. Once the two datasets were combined, the merged dataset contained 23,4429 rows and 17 columns, with each row containing a review for a particular recipe. The two columns that were most relevant include: 
 
@@ -19,7 +19,7 @@ The data used in this analysis consists of scrapped recipe reviews from the webs
 In order to begin exploring the data, I first began by preprocessing and cleaning the current dataset in the following way:
 
 1. I started with two separate datasets, RAW_recipes.csv, which contains recipe information from food.com, and RAW_interactions.csv, which contains user ratings and reviews for these recipes. I merged these datasets using a left join on the recipe_id column to combine the relevant information.
-2. After the dataset has been merged, I filled all the ratings values that had a rating of zero to np.nan, since a zero indicates that the user did not provide any rating (since the lowest rating is typically 1 star) so we would not want the zero's to affect our analysis
+2. After the dataset has been merged, I filled all the ratings values that had a rating of zero to np.nan, since a zero indicates that the user did not provide any rating (since the lowest rating is typically 1 star) so we would not want the zero's to affect our analysis.
 3. Then, I found the average rating for each recipe and included a new column to store these averages.
 4. The nutrition column contained a string with multiple nutritional values. I split this string into individual columns for each nutritional value (such as calories, total fat, sugar, sodium, protein, saturated fat, and carbohydrates). By extracting this information, I was able to use these nutrient columns to train my baseline and final models.
 
@@ -42,7 +42,7 @@ Here is the first few rows of resulting cleaned dataframe:
  frameborder="0"
  ></iframe>
  
-This histogram shows the distribution of calories, where the calories are grouped into 100 calorie increments. There is a clear right skew with most dishes being within the range of 0-600 calories, which makes sense as it aligns with typical calorie ranges for snacks and meals. Although this doesn't directly answer my initial exploration question, it does provide a useful visualization of the average calorie ranges that are present for recipes in this dataset. (Note: I decided to use a histogram over a box plot because it provided a more intuitive and detailed view of the data distribution)
+This histogram shows the distribution of calories, where the calories are grouped into 100 calorie increments. There is a clear right skew with most dishes being within the range of 0-600 calories, which makes sense as it aligns with typical calorie ranges for snacks and meals. Although this doesn't directly answer my initial exploration question, it does provide a useful visualization of the average calorie ranges that are present for recipes in this dataset (Note: I decided to use a histogram over a box plot because it provided a more intuitive and detailed view of the data distribution).
 
 **Carbohydrates vs Calories Distribution**
  
@@ -65,7 +65,7 @@ This graph displays the relationship between the amount of carbohydrates in a di
 | lunch      |    401.056 |     31.7938 | 35.7984 |        11.2587  |   19582 |
 | main-dish  |    502.815 |     40.0705 | 30.5317 |        11.2432  |   71806 |
 
-This pivot table shows the average nutritional content for various meal types including main-dish, breakfast, lunch, brunch and appetizers. It is interesting to note that the main dish has a significantly higher calorie count (about 100 more) and total fat count (approximately 9% more) than lunch, despite the two tags having some overlap (as main-dish could refer to either dinner or lunch meals). This suggests that certain factors, such as fat content, contribute to the higher caloric amount. Another interesting observation is that brunch contains a significantly higher sugar content, sometimes showing a 2x difference compared to other meal types. Additionally, lunch, brunch, breakfast, and appetizers tend to have similar values for calories, total fat, and carbohydrates, with little variation across these meal types.
+This pivot table shows the average nutritional content for various meal types including main-dish, breakfast, lunch, brunch and appetizers. It is interesting to note that the main dish has a significantly higher calorie count (about 100 more) and total fat count (approximately 9% more) than lunch, despite the two tags having some overlap (as main-dish could refer to either dinner or lunch meals). This suggests that certain factors, such as fat content, contribute to the higher caloric count. Another interesting observation is that brunch contains a significantly higher sugar content, sometimes showing a 2x difference compared to other meal types. Additionally, lunch, brunch, breakfast, and appetizers tend to have similar values for calories, total fat, and carbohydrates, with little variation across these meal types.
 
 **Imputation**
 After analyzing my dataset, I found that the two columns with the most significant number of missing values were rating (15,036 missing values) and avg_rating (2,777 missing values). These correspond to approximately 6.41% and 1.18% of the total dataset. Given that these missing percentages are relatively low compared to the size of the dataset, one option could be to drop the rows containing these missing values. However, since my analysis is focused on determining which factors influence calorie amount (which doesn't involve ratings or average ratings), I decided to keep the missing values since there is no significant impact.
@@ -73,7 +73,7 @@ After analyzing my dataset, I found that the two columns with the most significa
 ---
 
 ## Framing a Prediction Problem
-The problem that I am trying to predict is given the nutritional facts about a recipe, can we predict the amount of calories that dish has. Since my response variable is calories (which is a continuous variable), this problem would be considered regression. During my exploratory analysis, there seemed to be correlations between various nutition facts and the calorie amount, which is why I chose calories as my prediction variable. The metric that I decided to use to evaluate my model is R^2 because this indicated how well a model fits the data and what percentage of the variability the model captures. This is more informative than other evaluation metrics such as Mean Squared Error (MSE) and Root Mean Squared Error (RMSE) because MSE and RMSE only provides information about the magnitude of the model's prediction error without offering insight into the overall fit of the model. 
+The problem that I am trying to predict is given the nutritional facts about a recipe, can we predict the amount of calories that a dish has. Since my response variable is calories (which is a continuous variable), this problem would be considered regression. During my exploratory analysis, there seemed to be correlations between various nutrition facts and the calorie amount, which is why I chose calories as my prediction variable. The metric that I decided to use to evaluate my model is R^2 because this indicated how well a model fits the data and what percentage of the variability the model captures. This is more informative than other evaluation metrics such as Mean Squared Error (MSE) and Root Mean Squared Error (RMSE) because MSE and RMSE only provide information about the magnitude of the model's prediction error without offering insight into the overall fit of the model. 
 
 ---
 
@@ -85,8 +85,8 @@ The baseline model I chose was linear regression because it can effectively mode
 ## Final Model
 In order to improve upon the baseline model's performance, I decided to implement some feature engineering. Here are the 2 features that I included in the final model (in addition to the baseline model's protein and carbohydrates features):
 
-- **`sugar_to_fat_ratio`** This feature is the ratio of sugar:total fat. Since foods that have higher amounts of sugar and fat tend to be more calorically dense, this feature helped improve my model's prediction accuracy since higher ratios indicate more calories.
-- **`sodium_satfat_interaction`** This feature is the interaction of sodium * saturated fat. This helped improve my model because foods that tend to be higher in sodium and saturated fats (such as junk food or fast food) tend to also have higher calories, which also has potential to improve my model's performance.
+- **`sugar_to_fat_ratio`** This feature is the ratio of sugar:total fat. Since foods that have higher amounts of sugar and fat tend to be more calorically dense, this feature helped improve my model's prediction accuracy by incorporating the balance between these two energy dense components.
+- **`sodium_satfat_interaction`** This feature is the interaction of sodium * saturated fat. This helped improve my model because foods that tend to be higher in sodium and saturated fats (such as junk food or fast food) tend to also have higher calories so capturing this interaction allows the model to better account for these high-calorie food patterns.
 
 The modeling algorithm that I chose was Random Forest Regression because it can capture the complex, non linear patterns in the data. Since I included the interaction term between sodium and saturated fat, this model would be the best to capture this relationship. The method that I used to select the hyperparameters was GridSearchCV, which gave me these optimial hyperparameters:
 

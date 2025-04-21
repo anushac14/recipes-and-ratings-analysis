@@ -49,13 +49,13 @@ This graph displays the relationship between the amount of carbohydrates in a di
 
 **Nutritional Information Per Meal Type**
 
-| Tag        |   Calories |   Total Fat |   Sugar |   Carbohydrates |   Count |
+| tags       |   Calories |   Total Fat |   Sugar |   Carbohydrates |   Count |
 |:-----------|-----------:|------------:|--------:|----------------:|--------:|
-| main-dish  |    502.815 |     40.0705 | 30.5317 |        11.2432  |   71806 |
-| lunch      |    401.056 |     31.7938 | 35.7984 |        11.2587  |   19582 |
-| brunch     |    387.927 |     29.7146 | 63.9722 |        13.2426  |   18057 |
-| breakfast  |    355.093 |     26.2486 | 56.2776 |        12.4942  |   16259 |
 | appetizers |    337.755 |     32.6989 | 28.768  |         7.37155 |   17268 |
+| breakfast  |    355.093 |     26.2486 | 56.2776 |        12.4942  |   16259 |
+| brunch     |    387.927 |     29.7146 | 63.9722 |        13.2426  |   18057 |
+| lunch      |    401.056 |     31.7938 | 35.7984 |        11.2587  |   19582 |
+| main-dish  |    502.815 |     40.0705 | 30.5317 |        11.2432  |   71806 |
 
 This pivot table shows the average nutritional content for various meal types including main-dish, breakfast, lunch, brunch and appetizers. It is interesting to note that the main dish has a significantly higher calorie count (about 100 more) and total fat count (approximately 9% more) than lunch, despite the two tags having some overlap (as main-dish could refer to either dinner or lunch meals). This suggests that certain factors, such as fat content, contribute to the higher caloric amount. Another interesting observation is that brunch contains a significantly higher sugar content, sometimes showing a 2x difference compared to other meal types. Additionally, lunch, brunch, breakfast, and appetizers tend to have similar values for calories, total fat, and carbohydrates, with little variation across these meal types.
 

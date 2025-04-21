@@ -16,8 +16,7 @@ In order to begin exploring the data, I first began by preprocessing and cleanin
 1. I started with two separate datasets, RAW_recipes.csv, which contains recipe information from food.com, and RAW_interactions.csv, which contains user ratings and reviews for these recipes. I merged these datasets using a left join on the recipe_id column to combine the relevant information.
 2. After the dataset has been merged, I filled all the ratings values that had a rating of zero to np.nan, since a zero indicates that the user did not provide any rating (since the lowest rating is typically 1 star) so we would not want the zero's to affect our analysis
 3. Then, I found the average rating for each recipe and included a new column to store these averages.
-4. The nutrition column contained a string with multiple nutritional values. I split this string into individual columns for each nutritional value (such as calories, total fat, sugar, sodium, protein, saturated fat, and carbohydrates). I was able to use these columns for my baseline and final models.
-5. Finally, I processed the tags column by exploding the list so that each tag has its own row, allowing for one tag per row per recipe. This allowed me to use these tags to observe different nutritional information for each tag type.
+4. The nutrition column contained a string with multiple nutritional values. I split this string into individual columns for each nutritional value (such as calories, total fat, sugar, sodium, protein, saturated fat, and carbohydrates). By extracting this information, I was able to use these nutrient columns to train my baseline and final models.
 
 Here is the first few rows of resulting cleaned dataframe:
 

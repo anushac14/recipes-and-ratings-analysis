@@ -2,7 +2,6 @@
 By: **Anusha Chinthamaduka**
 
 ---
-
 ## Introduction
 This project investigates what types of recipes tend to have the most calories. This is incredibly important because it can help individuals make more informed dietary choices and can aid in meal planning and general nutritional awareness. Learning about the relationships between nutritional information and calories can empower people to maintain a healthier and more balanced lifestyle.
 
@@ -16,6 +15,7 @@ The data used in this analysis consists of scrapped recipe reviews from the webs
 ## Data Cleaning and Exploratory Data Analysis
 
 **Data Cleaning Steps**
+
 In order to begin exploring the data, I first began by preprocessing and cleaning the current dataset in the following way:
 
 1. I started with two separate datasets, RAW_recipes.csv, which contains recipe information from food.com, and RAW_interactions.csv, which contains user ratings and reviews for these recipes. I merged these datasets using a left join on the recipe_id column to combine the relevant information.

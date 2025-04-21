@@ -68,6 +68,7 @@ This graph displays the relationship between the amount of carbohydrates in a di
 This pivot table shows the average nutritional content for various meal types including main-dish, breakfast, lunch, brunch and appetizers. It is interesting to note that the main dish has a significantly higher calorie count (about 100 more) and total fat count (approximately 9% more) than lunch, despite the two tags having some overlap (as main-dish could refer to either dinner or lunch meals). This suggests that certain factors, such as fat content, contribute to the higher caloric count. Another interesting observation is that brunch contains a significantly higher sugar content, sometimes showing a 2x difference compared to other meal types. Additionally, lunch, brunch, breakfast, and appetizers tend to have similar values for calories, total fat, and carbohydrates, with little variation across these meal types.
 
 **Imputation**
+
 After analyzing my dataset, I found that the two columns with the most significant number of missing values were rating (15,036 missing values) and avg_rating (2,777 missing values). These correspond to approximately 6.41% and 1.18% of the total dataset. Given that these missing percentages are relatively low compared to the size of the dataset, one option could be to drop the rows containing these missing values. However, since my analysis is focused on determining which factors influence calorie amount (which doesn't involve ratings or average ratings), I decided to keep the missing values since there is no significant impact.
 
 ---

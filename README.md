@@ -1,12 +1,21 @@
 # Intoduction
 This project investigates what types of recipes tend to have the most calories. This is incredibly important because it can help individuals make more informed dietary choices and can aid in meal planning and general nutritional awarness. Learning about the relationships between nutritional information and calories can empower people to maintain a healthier and more balanced lifestyle.
 
-The data used in this analysis consists of scrapped recipe reviews from the website food.com. It contains 23,4429 rows and 17 columns, with each row containing a review for a particular recipe. The two columns that were most relavent include: 
+The data used in this analysis consists of scrapped recipe reviews from the website food.com. There were 2 seperate datasets, one containing recipies and the other containing the reviews and ratings for the recipies. Once the two datasets were combined, the merged dataset contained 23,4429 rows and 17 columns, with each row containing a review for a particular recipe. The two columns that were most relavent include: 
 
 - **`Nutrition`**: Consists of nutrient information such as number of calories and the Percentage of Daily Value (PDV) for total fat, sugar, sodium, protein, saturated fat, and carbohydrates
 - **`Tags`**: The descriptor tags that are present for each recipe. The tags that I was particularly interested in include breakfast, lunch, dinner, brunch, main-dish
 
 # Data Cleaning and Exploratory Data Analysis
+In order to start exploring the data, I first began by preprocessing and cleaning the current dataset in the following way:
+
+1. I started with two separate datasets, RAW_recipes.csv, which contains recipe information from food.com, and RAW_interactions.csv, which contains user ratings and reviews for these recipes. I merged these datasets using a left join on the recipe_id column to combine the relevant information.
+2. After the dataset has been merged, I filled all the ratings values that had a rating of zero to np.nan, since a zero indicates that the user did not provide any rating (since the lowest rating is typically 1 star) so we would not want the zero's to affect our analysis
+3. Then, I found the average rating for each recipe and included a new column to store these averages.
+4. The nutrition column contained a string with multiple nutritional values. I split this string into individual columns for each nutritional value (such as calories, total fat, sugar, sodium, protein, saturated fat, and carbohydrates). I was able to use these columns for my baseline and final models.
+5. Finally, I processed the tags column by exploding the list so that each tag has its own row, allowing for one tag per row per recipe. This allowed me to use these tags to observe different nutritional information for each tag type.
+
+Here is the first few rows of resulting cleaned dataframe:
 
 |     id  | name                                              | tags                  |   avg_rating |   Calories |   Total Fat |   Sugar |   Sodium |   Protein |   Saturated Fat |   Carbohydrates |
 |--------:|:--------------------------------------------------|:----------------------|-------------:|-----------:|------------:|--------:|---------:|----------:|----------------:|----------------:|
@@ -16,8 +25,14 @@ The data used in this analysis consists of scrapped recipe reviews from the webs
 | 476734  | peppery sweet oven roasted salmon                 | taste-mood            |            5 |      123.8 |           5 |      16 |        2 |        34 |               3 |               1 |
 | 285338  | healthier chicken marsala                         | 60-minutes-or-less    |            5 |      360.1 |          15 |       9 |       18 |        56 |              15 |               4 |
 
+ <iframe
+ src="assets/calorie-distribution.html"
+ width="800"
+ height="600"
+ frameborder="0"
+ ></iframe>
 
-This histogram displays the distribution of calories and specifically shows the count of the number of recipes per 100 calorie increment. Based on the graph, it is clear that there is a right skew, with many of the dishes being within the range of 0-600 calories, which makes sense as the average amount of calories that a meal fits within that range. This doesn't directly answer the question however it does give us an idea of what the typically amount of calories a dish has in this dataset.
+This histogram displays the distribution of calories and specifically shows the count of the number of recipes per 100 calorie increment. Based on the graph, it is clear that there is a right skew, with many of the dishes being within the range of 0-600 calories, which makes sense as the average amount of calories that a meal fits within that range. This doesn't directly answer my inital exploration question however it does give an idea of what the typical number of calories a dish has in this dataset.
 
 This graph plots the relationship between the amount of carbohydrates in a dish to the amount of calories the dish has. It is clear that there is a linear relationship between these variables, as can be seen by the trend line, which indicates that foods with higher carbohydrates tend to also have more calories.
 

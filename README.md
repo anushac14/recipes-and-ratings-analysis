@@ -1,4 +1,4 @@
-# The Calorie Code: Unlocking Nutritional Information in Food Data
+# Behind the Bite: Exploring What Drives Calories in Recipes
 By: **Anusha Chinthamaduka**
 
 ---

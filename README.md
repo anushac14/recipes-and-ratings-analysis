@@ -1,5 +1,5 @@
 # The Calorie Code: Unlocking Nutritional Information in Food Data
-By Anusha Chinthamaduka
+By: **Anusha Chinthamaduka**
 
 ---
 

@@ -1,6 +1,6 @@
 # The Calorie Code: Unlocking Nutritional Information in Food Data
 
-# Introduction
+## Introduction
 This project investigates what types of recipes tend to have the most calories. This is incredibly important because it can help individuals make more informed dietary choices and can aid in meal planning and general nutritional awareness. Learning about the relationships between nutritional information and calories can empower people to maintain a healthier and more balanced lifestyle.
 
 The data used in this analysis consists of scrapped recipe reviews from the website food.com. There were 2 separate datasets, one containing recipes and the other containing the reviews and ratings for the recipes. Once the two datasets were combined, the merged dataset contained 23,4429 rows and 17 columns, with each row containing a review for a particular recipe. The two columns that were most relevant include: 

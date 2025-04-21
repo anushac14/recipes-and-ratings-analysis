@@ -1,7 +1,9 @@
-# Intoduction
-This project investigates what types of recipes tend to have the most calories. This is incredibly important because it can help individuals make more informed dietary choices and can aid in meal planning and general nutritional awarness. Learning about the relationships between nutritional information and calories can empower people to maintain a healthier and more balanced lifestyle.
+# Nutrition Prediction
 
-The data used in this analysis consists of scrapped recipe reviews from the website food.com. There were 2 seperate datasets, one containing recipies and the other containing the reviews and ratings for the recipies. Once the two datasets were combined, the merged dataset contained 23,4429 rows and 17 columns, with each row containing a review for a particular recipe. The two columns that were most relavent include: 
+# Introduction
+This project investigates what types of recipes tend to have the most calories. This is incredibly important because it can help individuals make more informed dietary choices and can aid in meal planning and general nutritional awareness. Learning about the relationships between nutritional information and calories can empower people to maintain a healthier and more balanced lifestyle.
+
+The data used in this analysis consists of scrapped recipe reviews from the website food.com. There were 2 separate datasets, one containing recipes and the other containing the reviews and ratings for the recipes. Once the two datasets were combined, the merged dataset contained 23,4429 rows and 17 columns, with each row containing a review for a particular recipe. The two columns that were most relevant include: 
 
 - **`Nutrition`**: Consists of nutrient information such as number of calories and the Percentage of Daily Value (PDV) for total fat, sugar, sodium, protein, saturated fat, and carbohydrates
 - **`Tags`**: The descriptor tags that are present for each recipe. The tags that I was particularly interested in include breakfast, lunch, dinner, brunch, main-dish
@@ -35,7 +37,7 @@ Here is the first few rows of resulting cleaned dataframe:
  frameborder="0"
  ></iframe>
  
-This histogram shows the distribution of calories, where the calories are grouped into 100 calorie increments. There is a clear right skew with most dishes being within the range of 0-600 calories, which makes sense as it aligns with the typical average calories that both snacks and meals have. Although this doesn't directly answer my inital exploration question, it does provide a useful visualization of the typical calorie ranges that are present for recipes in this dataset.
+This histogram shows the distribution of calories, where the calories are grouped into 100 calorie increments. There is a clear right skew with most dishes being within the range of 0-600 calories, which makes sense as it aligns with the typical average calories that both snacks and meals have. Although this doesn't directly answer my initial exploration question, it does provide a useful visualization of the typical calorie ranges that are present for recipes in this dataset.
 
 **Carbohydrates vs Calories Distribution**
  <iframe
@@ -56,27 +58,26 @@ This graph displays the relationship between the amount of carbohydrates in a di
 | breakfast  |    355.093 |     26.2486 | 56.2776 |        12.4942  |   16259 |
 | appetizers |    337.755 |     32.6989 | 28.768  |         7.37155 |   17268 |
 
-This pivot table shows the average nutritional content for various meal types including main-dish, breakfast, lunch, brunch and appetizers. It is interesting to note that the main dish has a significantly higher calorie count (about 100 more) and total fat count (appoximately 9% more) than lunch, despite the two tags having some overlap (as main-dish could refer to either dinner or lunch meals). This suggests that certain factors, such as fat content, contribute to the higher caloric amount. Another interesting observation is that brunch contains a significantly higher sugar content, sometimes showing a 2x difference compared to other meal types. Additionally, lunch, brunch, breakfast, and appetizers tend to have similar values for calories, total fat, and carbohydrates, with little variation across these meal types.
+This pivot table shows the average nutritional content for various meal types including main-dish, breakfast, lunch, brunch and appetizers. It is interesting to note that the main dish has a significantly higher calorie count (about 100 more) and total fat count (approximately 9% more) than lunch, despite the two tags having some overlap (as main-dish could refer to either dinner or lunch meals). This suggests that certain factors, such as fat content, contribute to the higher caloric amount. Another interesting observation is that brunch contains a significantly higher sugar content, sometimes showing a 2x difference compared to other meal types. Additionally, lunch, brunch, breakfast, and appetizers tend to have similar values for calories, total fat, and carbohydrates, with little variation across these meal types.
 
 **Imputation**
 After analyzing my dataset, I found that the two columns with the most significant number of missing values were rating (15,036 missing values) and avg_rating (2,777 missing values). These correspond to approximately 6.41% and 1.18% of the total dataset. Given that these missing percentages are relatively low compared to the size of the dataset, one option could be to drop the rows containing these missing values. However, since my analysis is focused on determining which factors influence calorie amount (which doesn't involve ratings or average ratings), I decided to keep the missing values since there is no significant impact.
 
 # Framing a Prediction Problem
-The problem that I am trying to predict is given nutritional facts about a recipe, can we predict the amount of calories that dish has. Since my response variable is calories (which is a continuous variable), this problem would be considered regression. During my exploratory analysis, there seemed to be correlations between various nutition facts and the calorie amount, which is why I chose calories as my prediction variable. The metric that I decided to use to evaluate my model is R^2 because this indicated how well a model fits the data and what percentage of the variability the model captures. This is more informative than other evaluation metrics such as Mean Squared Error (MSE) and Root Mean Squared Error (RMSE) because MSE and RMSE only provides information about the magnitude of the model's prediction error without offering insight into the overall fit of the model. 
+The problem that I am trying to predict is given the nutritional facts about a recipe, can we predict the amount of calories that dish has. Since my response variable is calories (which is a continuous variable), this problem would be considered regression. During my exploratory analysis, there seemed to be correlations between various nutition facts and the calorie amount, which is why I chose calories as my prediction variable. The metric that I decided to use to evaluate my model is R^2 because this indicated how well a model fits the data and what percentage of the variability the model captures. This is more informative than other evaluation metrics such as Mean Squared Error (MSE) and Root Mean Squared Error (RMSE) because MSE and RMSE only provides information about the magnitude of the model's prediction error without offering insight into the overall fit of the model. 
 
 # Baseline Model
 The baseline model I chose was linear regression because it can effectively model the linear relationships between the input features (nutrition facts) and the target variable (calories). The features used for this model include Carbohydrates and Proteins, which both have a positive linear relationship with calories. Both of these features are quantitative and nominal and neither are ordinal. The R^2 performance on this model was 0.8116 for the training set and 0.8077 for the testing set. This indicates that the model captures 80.77% of the variance in the calorie values on unseen data. I believe that my current model is fairly good at capturing most of the variance but there is still room for improvement through feature engineering. 
 
 # Final Model
-In order to improve upon the baseline model's performance, I decided to implement some feature engineering. Here are the 2 features that I included (in addition to the baseline model's protein and carbohydrates features):
+In order to improve upon the baseline model's performance, I decided to implement some feature engineering. Here are the 2 features that I included in the final model (in addition to the baseline model's protein and carbohydrates features):
 
-- **`sugar_to_fat_ratio`** This feature is the ratio of sugar:total fat. Since foods that have higher amounts of sugar and fat tend to be more calorically dense, this feature helped improve my model's prediction accuracy since higher ratios indicate more calories
+- **`sugar_to_fat_ratio`** This feature is the ratio of sugar:total fat. Since foods that have higher amounts of sugar and fat tend to be more calorically dense, this feature helped improve my model's prediction accuracy since higher ratios indicate more calories.
 - **`sodium_satfat_interaction`** This feature is the interaction of sodium * saturated fat. This helped improve my model because foods that tend to be higher in sodium and saturated fats (such as junk food or fast food) tend to also have higher calories, which also has potential to improve my model's performance.
 
-The modeling algorithm that I chose was 
+The modeling algorithm that I chose was Random Forest Regression because it can capture the complex, non linear patterns in the data. Since I included the interaction term between sodium and saturated fat, this model would be the best to capture this relationship. The method that I used to select the hyperparameters was GridSearchCV, which gave me these optimial hyperparameters:
 
-The modeling algorithm that I chose was Ridge because it handles linear relationships as well as multicollinearity. 
+- **`min_samples_split`**: 2
+- **`n_estimators`**: 200
 
-The best hyperparameters were {'model__alpha': 10, 'model__fit_intercept': True}
-
-The final model's R^2 value was 0.9959, which means that 99.59% of the variance in the data is captured by my model, which is a significant improvement from my baseline. 
+After running my model on these four features and the optimal hyperparameters, the performance significantly increased from my baseline model. My R^2 values for the training set was 0.9885 and 0.9550 for the test set. This means that my model was able to capture 95.50% of the calorie variance on unseen data, which is approximately 15 percentage points greater than my baseline model. Since the R^2 value is close to 1, it indicates that the model demonstrates strong predictive performance for calorie estimation using the features protein, carbohydrates, sugar to fat ratio, and the interaction between sodium and saturated fat.

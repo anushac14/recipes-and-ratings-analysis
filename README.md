@@ -44,17 +44,6 @@ Here is the first few rows of resulting cleaned dataframe:
  
 This histogram shows the distribution of calories, where the calories are grouped into 100 calorie increments. There is a clear right skew with most dishes being within the range of 0-600 calories, which makes sense as it aligns with typical calorie ranges for snacks and meals. Although this doesn't directly answer my initial exploration question, it does provide a useful visualization of the average calorie ranges that are present for recipes in this dataset (Note: I decided to use a histogram over a box plot because it provided a more intuitive and detailed view of the data distribution).
 
-**Carbohydrates vs Calories Distribution**
- 
- <iframe
- src="assets/carbs-calories-distribution.html"
- width="800"
- height="600"
- frameborder="0"
- ></iframe>
- 
-This graph displays the relationship between the amount of carbohydrates in a dish and the amount of calories the dish has. There appears to be a positive linear relationship between these variables, which suggests that foods with higher amounts of carbohydrates generally contain more calories.
-
 **Calories vs Nutrients Correlation**
 
 <iframe

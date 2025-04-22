@@ -79,7 +79,7 @@ The problem that I am trying to predict is given the nutritional facts about a r
 ---
 
 ## Baseline Model
-The baseline model that I chose was linear regression because it can effectively model the linear relationships between the input features (nutrition facts) and the target variable (calories). The features used for this model include Carbohydrates and Proteins, which both have a positive linear relationship with calories. Both of these features are quantitative and nominal and neither are ordinal. The R^2 performance on this model was 0.8116 for the training set and 0.8077 for the testing set. This indicates that the model captures 80.77% of the variance in the calorie values on unseen data. I believe that my current model is fairly good at capturing most of the variance but there is still room for improvement through feature engineering. 
+The baseline model that I chose was linear regression because it can effectively model the linear relationships between the input features (nutrition facts) and the target variable (calories). The features used for this model include Carbohydrates and Proteins, which both have a positive linear relationship with calories. Both of these features are quantitative and both are also nominal. Neither of the features are ordinal. The R^2 performance on this model was 0.8116 for the training set and 0.8077 for the testing set. This indicates that the model captures 80.77% of the variance in the calorie values on unseen data. I believe that my current model is fairly good at capturing most of the variance but there is still room for improvement through feature engineering. 
 
 ---
 

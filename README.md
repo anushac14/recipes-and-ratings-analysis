@@ -1,4 +1,4 @@
-# Behind the Bite: Exploring What Drives Calories in Recipes
+# Behind the Bite: What Drives Calories in Recipes?
 By: **Anusha Chinthamaduka**
 
 ---
@@ -94,4 +94,4 @@ The modeling algorithm that I chose was Random Forest Regression because it can 
 - **`min_samples_split`**: 2
 - **`n_estimators`**: 200
 
-After running my model on these four features and the optimal hyperparameters, the performance significantly increased from my baseline model. My R^2 values for the training set was 0.9885 and 0.9550 for the test set. This means that my model was able to capture 95.50% of the calorie variance on unseen data, which is approximately 15 percentage points greater than my baseline model. Since the R^2 value is close to 1, it indicates that the model demonstrates strong predictive performance for calorie estimation using the features protein, carbohydrates, sugar to fat ratio, and the interaction between sodium and saturated fat.
+After running my model on these four features and the optimal hyperparameters, the performance significantly increased from my baseline model. My R^2 values for the training set was 0.9876 and 0.9531 for the test set. This means that my model was able to capture 95.31% of the calorie variance on unseen data, which is approximately 15 percentage points greater than my baseline model. Since the R^2 value is close to 1, it indicates that the model demonstrates strong predictive performance for calorie estimation using the features protein, carbohydrates, sugar to fat ratio, and the interaction between sodium and saturated fat.

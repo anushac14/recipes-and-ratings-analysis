@@ -55,6 +55,17 @@ This histogram shows the distribution of calories, where the calories are groupe
  
 This graph displays the relationship between the amount of carbohydrates in a dish and the amount of calories the dish has. There appears to be a positive linear relationship between these variables, which suggests that foods with higher amounts of carbohydrates generally contain more calories.
 
+**Calories vs Nutrients Correlation**
+
+<iframe
+ src="assets/calories-nutrients-correlation.html"
+ width="800"
+ height="600"
+ frameborder="0"
+ ></iframe>
+
+This heatmap visualizes the correlation between calories and different nutrient information. The nutrients that have the strongest positive correlation with calories include Total Fat, Saturated Fat, and Carbohydrates, which suggests that these nutrients are key contributors to determining the caloric content of a recipe. 
+
 **Nutritional Information Per Meal Type**
 
 | tags       |   Calories |   Total Fat |   Sugar |   Carbohydrates |   Count |
